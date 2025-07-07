@@ -40,12 +40,26 @@
     </div>
 
     <script>
+      //表示テキストリスト
+      const list = [
+        "「2ページ目です」", 
+        "「3ページ目です」", 
+        "「4ページ目です」", 
+        "「5ページ目です」", 
+        "「6ページ目です」"
+      ];
+      //初期値
+      let num = 0;
+      console.log(num);
+      
+      //class="text"を指定
       const text = document.getElementsByClassName("text")[0];
-      function a() {
-        text.textContent = '「2ページ目です」';
-      }
+
       const button = document.getElementById("nextButton");
-      button.addEventListener("click",a);
+      button.addEventListener("click",() => {
+        text.textContent = list[num];
+        ++num;
+      });
     </script>
   </body>
 </html>
