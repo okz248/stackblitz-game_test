@@ -36,13 +36,16 @@
       <div class="name">いらすとちゃん</div>
       <!-- セリフ -->
       <div class="text">「ここにセリフが表示されます。」</div>
-      <button id="nextButton">
-        <a href="./nextPage 2.html">次へ</a>
-      </button>
+      <button id="nextButton">次へ</button>
     </div>
 
     <script>
-      // ここにJavaScriptを書く
+      const text = document.getElementsByClassName("text");
+      function a() {
+        text.textContent = '「2ページ目です」';
+      }
+      const button = document.getElementById("nextButton");
+      button.addEventListener("click",a);
     </script>
   </body>
 </html>
