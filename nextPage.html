@@ -65,11 +65,14 @@
       //class="irasutoya-picture"を指定
       const img = document.getElementsByClassName("irasutoya-picture")[0];
 
+      //id="nextButton"を指定し、ボタン押下時にテキストと画像を変更
       const button = document.getElementById("nextButton");
       button.addEventListener("click",() => {
-        text.textContent = txtlist[num];
-        img.src = imglist[num];
-        ++num;
+        if(num < txtlist.length){
+          text.textContent = txtlist[num];
+          img.src = imglist[num];
+          ++num;
+        }
       });
     </script>
   </body>
