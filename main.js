@@ -25,14 +25,29 @@ const text = document.getElementsByClassName("text")[0];
 //class="irasutoya-picture"を指定
 const img = document.getElementsByClassName("irasutoya-picture")[0];
 
+//cookieを保存する
+const setCookie = () => {
+  document.cookie = "page=" + num;
+};
+
+//cookieを取得する
+const getCookie = () => {
+  const cookies = document.cookie.split("; ");
+  for (let cookie of cookies) {
+    const [key, value] = cookie.split("=");
+    if (key === "page") {
+      num = parseInt(value);
+    }
+  }
+};
+
 //初期画面設定
 //urlパラメータの取得
 let urlString = window.location.href;
 let url = new URL(urlString);
 let param = url.searchParams.get("id");
 //パラメータのチェック
-if(param === !null){
-  console.log(1);
+if(param){
   getCookie();
 };
 
@@ -59,22 +74,6 @@ backButton.addEventListener("click",() => {
     img.src = imglist[num];
   }
 });
-
-//cookieを保存する
-const setCookie = () => {
-  document.cookie = "page=" + num;
-};
-
-//cookieを取得する
-const getCookie = () => {
-  const cookies = document.cookie.split("; ");
-  for (let cookie of cookies) {
-    const [key, value] = cookie.split("=");
-    if (key === "page") {
-      num = parseInt(value);
-    }
-  }
-};
 
 //id="saveButton"を指定し、表示画面をcookieに保存
 const saveButton = document.getElementById("saveButton");
